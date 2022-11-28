@@ -37,9 +37,6 @@ RUN apk --no-cache add \
   bash \
   less
 
-# Create symlink so programs depending on `php` still function
-# RUN ln -s /usr/bin/php7 /usr/bin/php
-
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
