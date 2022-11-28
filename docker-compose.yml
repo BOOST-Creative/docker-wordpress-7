@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  # optional
+  redis-wp:
+    container_name: redis-wp
+    image: redis:7-alpine
+    restart: unless-stopped
+
+  example-site:
+    container_name: example-site
+    image: ghcr.io/henrygd/docker-wordpress-7:latest
+    restart: unless-stopped
+    volumes:
+      - PATH_TO_WORDPRESS_FILES:/usr/src/wordpress
+    ports:
+      - '127.0.0.1:8000:80'
+    environment:
+      # specify any plugins to install by slug
+      ADDITIONAL_PLUGINS: 'w3-total-cache post-smtp ninjafirewall disable-media-pages'
+      # cron jobs to run from within container (separate lines with \n)
+      CRON: "* * * * * touch hello-world \n
+        0 * * * * curl http://127.0.0.1/webhook &>/dev/null"
