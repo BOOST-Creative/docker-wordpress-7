@@ -2,6 +2,8 @@
 
 Lightweight WordPress container with Nginx & PHP-FPM 7 based on Alpine Linux.
 
+Don't update past Alpine 3.15 as the php7 package is removed.
+
 PHP 8 image here: https://github.com/BOOST-Creative/docker-wordpress-8
 
 Fork of a fork of [TrafeX/docker-wordpress](https://github.com/TrafeX/docker-wordpress).
