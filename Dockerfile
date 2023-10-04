@@ -66,4 +66,4 @@ EXPOSE 80
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
 # healthcheck runs cron queue every 5 mintes - add disable_cron to wp-config
-HEALTHCHECK --interval=300s CMD cd /usr/src/wordpress/ && wp cron event run --due-now --skip-themes --skip-plugins || exit 1
+HEALTHCHECK --interval=300s CMD su -s /bin/sh nobody -c "cd /usr/src/wordpress/ && wp cron event run --due-now --skip-themes --skip-plugins || exit 1"
