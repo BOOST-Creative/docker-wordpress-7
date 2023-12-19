@@ -31,6 +31,7 @@ RUN apk --no-cache add \
   php7-gd \
   php7-pecl-redis \
   php7-soap \
+  php7-pdo \
   mysql-client \
   nginx \
   supervisor \
